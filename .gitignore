@@ -1,0 +1,17 @@
+.DS_Store
+.ipynb_checkpoints/
+*.swp
+*.swo
+
+# Python / Jupyter cache
+__pycache__/
+*.pyc
+
+# Fortran / build artifacts
+*.o
+*.mod
+*.exe
+
+# Local build output directories
+/magnon-solver/compile/
+

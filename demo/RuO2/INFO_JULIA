@@ -1,0 +1,9 @@
+MAGNETIC = true
+MAGMOM = 
+ 0 0  1
+ 0 0 -1
+ 0 0  0
+ 0 0  0
+ 0 0  0
+ 0 0  0
+SOC = false

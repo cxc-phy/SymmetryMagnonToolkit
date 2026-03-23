@@ -1,0 +1,21 @@
+#used for compiling codes
+
+#SRC=/Users/vivian/Documents/SHTech/Lab/Magnon_dispersion/code
+#OBJ=/Users/vivian/Documents/SHTech/Lab/Magnon_dispersion/code/compile
+#BIN=/Users/vivian/Documents/SHTech/Lab/Magnon_dispersion/code/exe
+
+SRC=/Users/xiaochancai/Documents/project/code
+OBJ=/Users/xiaochancai/Documents/project/code/compile
+BIN=/Users/xiaochancai/Documents/project/code/exe
+
+gfortran -J $OBJ -c $SRC/parameter.f90 -o $OBJ/parameter.o
+gfortran -J $OBJ -c $SRC/hmatrix.f90 -o $OBJ/hmatrix.o
+gfortran -J $OBJ -c $SRC/LSW.f90 -o $OBJ/LSW.o 
+gfortran -J $OBJ -c $SRC/SLAB.f90 -o $OBJ/SLAB.o
+gfortran -J $OBJ -c $SRC/SPEC.f90 -o $OBJ/SPEC.o
+gfortran -J $OBJ -c $SRC/TOPO.f90 -o $OBJ/TOPO.o
+gfortran -I $OBJ -c $SRC/material.f90 -o $OBJ/material.o
+gfortran -o $BIN/material.exe $SRC/material.f90 -L/usr/lib -llapack -L/usr/lib -lblas -m64
+
+rm *.mod
+echo "code updated"

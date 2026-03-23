@@ -1,0 +1,19 @@
+julia /Users/xiaochancai/Documents/project/spin-group/code/material.jl
+
+#/Users/vivian/Documents/SHTech/Lab/Magnon_dispersion/code/exe/material.exe
+#/Users/xiaochancai/Documents/project/code/exe/material.exe
+
+#FILE=project_plot
+#if [ ! -f "$FILE" ] ;then
+#	cp /Users/vivian/Documents/SHTech/Lab/Magnon_dispersion/code/plot/project_plot ./
+#fi
+
+#FILE=slab_plot
+#if [ ! -f "$FILE" ] ;then
+#	cp /Users/vivian/Documents/SHTech/Lab/Magnon_dispersion/code/plot/slab_plot ./
+#fi
+
+#FILE=spec_plot
+#if [ ! -f "$FILE" ] ;then
+#	cp /Users/vivian/Documents/SHTech/Lab/Magnon_dispersion/code/plot/spec_plot ./
+#fi

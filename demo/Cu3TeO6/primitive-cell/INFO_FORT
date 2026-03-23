@@ -1,0 +1,121 @@
+NBR_ORDER = 8
+SYM = true
+# --- global parameters ---
+SysDim  = 3
+
+# Spin_Config : spin configuration
+# in form of number of inequivalent atom * dimension of spin
+# dimension of spin = 3[cartesian coord] or 2[spherical coord (theta_y,phi_z)]
+S_Value = 0.5
+Spin_Config = 12 * 3 
+ 0 0 -1
+ 0 0 -1
+ 0 0 -1
+ 0 0 -1
+ 0 0 -1
+ 0 0 -1
+ 0 0  1
+ 0 0  1
+ 0 0  1
+ 0 0  1
+ 0 0  1
+ 0 0  1
+
+# J_Ani : J_xx/yy/zz have different values
+# J_value : neighbor order * inequivalent neighbor
+# if J_Ani = T , in form of Ji1_xx Ji1_yy Ji1_zz ; Ji2_xx Ji2_yy Ji2_zz
+# if J_Ani = F , in form of Ji1 ; Ji2
+J_Ani   = .False.
+J_value = 8
+ 4.4
+-0.36
+-1.6
+ 1.3
+-0.21
+-0.2
+ 0.03
+ 4.5
+
+# D_value : number of bonds with DMI value
+# in form of atom1 atom2 cell D_x D_y D_z
+DMI     = .False.
+D_value = 2 
+
+# single ion anisotropy
+SIA     = .False.
+A_value = -0.001
+
+# --- section for checking system stability in whole BZ ---
+###### not in use
+BZ3D = .False.
+BZ2D = .False.
+
+# --- section for bulk magnon structure ---
+Bulk = .True.
+kpath_bulk = 3 # number of k vertices
+0.5 -0.5 0.5
+0.25 0.25 0.25
+0.5 -0.5 0.5
+
+#1 0 2
+#1.5 0.5 1.5
+#2 1 2
+
+# --- section for slab magnon structure ---
+# stackdir_slab : stacking direction
+
+Slab2D = .False.
+Slab1D = .False.
+nlayer = 1
+stackdir_slab = z 
+kpath_slab = 4 # k vertices
+ 0.10000   0.20000
+ 0.00000   0.50000
+ 0.50000   0.50000
+ 0.00000   0.00000
+
+
+# --- section for surface green function ---
+# stackdir_surf : stacking direction
+# broaden : broadening factor
+# kp_mode : calculating along certain kpath
+# energy_mode :  calculating on certain energy
+
+Surf2D = .False.
+Surf1D = .False.
+stackdir_surf = z 
+broaden = 0.001 
+
+kp_mode = .True. 
+E_min = 0
+E_max = 5
+E_step = 0.01
+kpath_surf = 4
+ 0.00000   0.00000
+ 0.00000   0.50000
+ 0.50000   0.50000
+ 0.00000   0.00000
+
+energy_mode = .False. ###not in use
+E_cut = 8
+
+
+# --- section for Z2 invariant with time reversal symmetry ---
+# bands_include : number of positive bands needed
+# in form of band_initial - band_final
+# INSUL2D : calculating chern # for 2D insulating system
+# SEMI1D : calculating topology number along a loop
+# loop_center : defect center
+# nor_dir : normal direction of the loop
+# num_loopkp : number of kpoints on the loop
+
+Topo = .False.
+TRS  = .True.
+bands_include = 1 - 4 
+
+INSUL2D = .False.
+
+SEMI1D = .True.
+loop_center = -0.13 0.0 0.5 
+nor_dir = y  
+num_loopkp = 20 
