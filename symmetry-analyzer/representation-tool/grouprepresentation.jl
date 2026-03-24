@@ -26,6 +26,18 @@ export get_character_table_of_irreps
 """
 get_multiplicity_of_irrep
 """
+function get_multiplicity_of_irrep(rep::Vector{Matrix{ComplexF64}}, coirreps::@NamedTuple{irreps::Matrix{Matrix{ComplexF64}}, case::Vector{Int64}})::Vector{Int64}
+    muls = Int64[]
+    for i in axes(coirreps.irreps, 1)
+        mul = get_multiplicity_of_irrep(rep, coirreps.irreps[i,:])
+        if coirreps.case[i] == 0
+            push!(muls, mul/4)
+        else
+            push!(muls, mul/2)
+        end
+    end
+    return muls
+end
 function get_multiplicity_of_irrep(rep::Vector{Matrix{ComplexF64}}, irrep::Matrix{Matrix{ComplexF64}})::Vector{Int64}
     muls = Int64[]
     for i in axes(irrep, 1)
@@ -49,7 +61,6 @@ function get_multiplicity_of_irrep(tr_rep::Vector{<:Number}, tr_irrep::Vector{<:
     for i in 1:order
         mul += tr_rep[i]*conj(tr_irrep[i])/order
     end
-    #println(mul)
     if !isinteger(round(mul, digits=3)) error("Error occurs at get_multiplicity_of_irrep: multiplicity is not an integer") end
     mul = Int64(round(mul, digits=3))
     return mul

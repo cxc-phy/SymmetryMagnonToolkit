@@ -67,7 +67,7 @@ function get_coirreps_of_little_group_of_k(mats; k)
     coirrep = get_coirreps(totmats, Umats, aUmats, irreps, k=k, coirrep=true);
     uidxs = [i for i in eachindex(totmats) if Symmetry.is_symmetry_unitary(totmats[i])]
     irreps = [coirrep.irreps[i, j] for i in axes(coirrep.irreps, 1), j in uidxs];
-    return Umats, irreps
+    return Umats, (irreps=irreps,case=coirrep.case)
 end
 
 """
